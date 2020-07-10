@@ -1,0 +1,11 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+} 
