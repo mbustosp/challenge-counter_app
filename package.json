@@ -4,7 +4,13 @@
   "description": "Frontend test for cornershop app",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"node server/index.js\""
+    "start": "concurrently \"react-scripts start\" \"node server/index.js\"",
+    "test": "react-scripts test --env=jsdom",
+    "test:no-watch": "react-scripts test --env=jsdom --watchAll=false --passWithNoTests",
+    "lint": "eslint **/*.js[x]",
+    "lint:fix": "eslint --fix **/*.js[x]",
+    "stylelint": "stylelint --allow-empty-input '**/*.scss'",
+    "stylelint:fix": "stylelint --allow-empty-input --fix '**/*.scss'"
   },
   "author": "Cornershop",
   "license": "ISC",
@@ -15,9 +21,37 @@
     "express": "^4.14.1",
     "lodash": "^4.17.4",
     "morgan": "^1.8.1",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^26.0.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-jsx-a11y": "6.3.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "4.0.0",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run stylelint",
+      "pre-push": "npm run test:no-watch"
+    }
   },
   "proxy": "http://localhost:3001",
   "browserslist": {
