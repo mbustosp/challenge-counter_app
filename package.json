@@ -6,6 +6,7 @@
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"node server/index.js\"",
     "test": "react-scripts test --env=jsdom",
+    "test:no-watch": "react-scripts test --env=jsdom --watchAll=false --passWithNoTests",
     "lint": "eslint **/*.js[x]",
     "lint:fix": "eslint --fix **/*.js[x]",
     "stylelint": "stylelint --allow-empty-input '**/*.scss'",
@@ -49,7 +50,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && npm run stylelint",
-      "pre-push": "npm run test"
+      "pre-push": "npm run test:no-watch"
     }
   },
   "proxy": "http://localhost:3001",
