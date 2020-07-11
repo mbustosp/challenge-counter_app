@@ -12,7 +12,9 @@
       {
         "devDependencies": [
           ".storybook/**",
-          "**/*.stories.js[x]"
+          "**/*.stories.js[x]",
+          "**/*.test.js[x]",
+          "src/setupTests.js"
         ]
       }
     ]
