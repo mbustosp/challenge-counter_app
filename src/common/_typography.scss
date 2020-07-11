@@ -1,0 +1,33 @@
+// Import Font
+@import '_fonts.scss';
+
+// Import variables;
+@import '_variables.scss';
+
+body {
+  font-family: Nunito, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+.h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+
+  &--selected-group {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+h1 {
+  @extend .h1;
+}
+
+
+

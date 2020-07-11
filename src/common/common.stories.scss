@@ -1,0 +1,28 @@
+@import 'src/common/variables';
+
+.colors-list {
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+
+    &__name {
+      margin-left: 8px;
+    }
+
+    &__sample {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+
+      &--destructive-red {
+        background-color: $color-destructive-red;
+      }
+
+      &--app-tint {
+        background-color: $color-app-tint;
+      }
+    }
+  }
+}
+
