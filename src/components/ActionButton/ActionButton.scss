@@ -1,0 +1,21 @@
+@import 'src/common/variables';
+
+.button--action {
+  min-width: 99px;
+  min-height: 40px;
+  padding: 8px 24px;
+  background: $color-app-tint;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+
+  &--light {
+    background-color: white;
+    color: $color-app-tint;
+  }
+}
