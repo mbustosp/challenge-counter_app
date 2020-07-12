@@ -11,31 +11,31 @@ import ActionButton from '../../atoms/ActionButton';
  */
 import './Welcome.scss';
 
-const WelcomeScreen = ({ onGetStarted }) => {
+const Welcome = ({ onGetStarted }) => {
   return (
-    <section className="welcome-screen">
-      <div className="welcome-screen__logo">
+    <section className="welcome">
+      <div className="welcome__logo">
         <img src={challengeLogo} alt="Counters logo" />
       </div>
-      <div className="welcome-screen__message">
-        <h1 className="welcome-screen__message__title">Welcome to Counters</h1>
-        <p className="welcome-screen__message__description">
+      <div className="welcome__message">
+        <h1 className="welcome__message__title">Welcome to Counters</h1>
+        <p className="welcome__message__description">
           Capture cups of lattes, frapuccinos, or anything else that can be counted.
         </p>
       </div>
-      <div className="welcome-screen__button">
+      <div className="welcome__button">
         <ActionButton label="Get Started" onClick={onGetStarted} />
       </div>
     </section>
   );
 };
 
-WelcomeScreen.propTypes = {
+Welcome.propTypes = {
   onGetStarted: PropTypes.func,
 };
 
-WelcomeScreen.defaultProps = {
+Welcome.defaultProps = {
   onGetStarted: () => true,
 };
 
-export default WelcomeScreen;
+export default Welcome;
