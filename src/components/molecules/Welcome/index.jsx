@@ -2,17 +2,16 @@
  * Core dependencies
  */
 import React from 'react';
-import challengeLogo from '../../assets/challenge_logo.svg';
-import ActionButton from '../../components/ActionButton/ActionButton';
+import PropTypes from 'prop-types';
+import challengeLogo from '../../../assets/challenge_logo.svg';
+import ActionButton from '../../atoms/ActionButton';
 
 /**
  * Styles
  */
-import './WelcomeScreen.scss';
+import './Welcome.scss';
 
-const WelcomeScreen = () => {
-  const continueAction = () => true;
-
+const WelcomeScreen = ({ onGetStarted }) => {
   return (
     <section className="welcome-screen">
       <div className="welcome-screen__logo">
@@ -25,10 +24,18 @@ const WelcomeScreen = () => {
         </p>
       </div>
       <div className="welcome-screen__button">
-        <ActionButton label="Get Started" onClick={continueAction} />
+        <ActionButton label="Get Started" onClick={onGetStarted} />
       </div>
     </section>
   );
+};
+
+WelcomeScreen.propTypes = {
+  onGetStarted: PropTypes.func,
+};
+
+WelcomeScreen.defaultProps = {
+  onGetStarted: () => true,
 };
 
 export default WelcomeScreen;

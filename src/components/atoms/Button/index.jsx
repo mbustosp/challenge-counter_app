@@ -1,6 +1,13 @@
+/**
+ * Core dependencies
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+/**
+ * Styles
+ */
 import './Button.scss';
 
 const Button = ({ onClick, disabled, children, label, className }) => {
