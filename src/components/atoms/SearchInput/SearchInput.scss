@@ -1,0 +1,41 @@
+@import '../../../common/variables';
+
+.search-input {
+  display: flex;
+  width: 100%;
+  max-width: 380px;
+  height: 48px;
+  padding: 8px;
+  margin: 1px;
+
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+
+  &:focus-within {
+    border: 2px solid $color-app-tint;
+    border-radius: 8px;
+    margin: 1px;
+  }
+
+  &__icon {
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__input {
+    width: 100%;
+    font-size: 16px;
+    line-height: 23px;
+    color: $color-text-input;
+    caret-color: $color-app-tint;
+
+    &:hover, &:active, &:focus {
+      outline: none;
+    }
+  }
+
+}
