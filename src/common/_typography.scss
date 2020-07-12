@@ -4,7 +4,7 @@
 // Import variables;
 @import '_variables.scss';
 
-body {
+body, input {
   font-family: 'Avenir Next', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -28,6 +28,4 @@ body {
 h1 {
   @extend .h1;
 }
-
-
 
