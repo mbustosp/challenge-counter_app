@@ -12,9 +12,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 
-  font-size: 17px;
-  line-height: 23px;
-  color: $color-text-input;
+  font-size: 16px;
+  line-height: 32px;
+  color: black;
   caret-color: $color-app-tint;
 
   &:hover, &:active, &:focus {
@@ -22,6 +22,12 @@
     border-radius: 8px;
     margin: 1px;
     outline: none;
+  }
+
+  &::placeholder {
+    color: $color-text-input-placeholder;
+    font-size: 17px;
+    line-height: 23px;
   }
 
 

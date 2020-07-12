@@ -11390,6 +11390,11 @@ raw-loader@^3.1.0:
     loader-utils "^1.1.0"
     schema-utils "^2.0.1"
 
+react-animate-mount@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-animate-mount/-/react-animate-mount-1.0.1.tgz#2be5d102df488089124cc610837820d5d6b7f21f"
+  integrity sha512-ppH4yJwLCX5hZMGv1z86rv31uVzmp+Hop25azLnoeixUo5rB4o37GQr62RFlQVcX/tD9rlg6yqZ2Z4aMTHRORw==
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
