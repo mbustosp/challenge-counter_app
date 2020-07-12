@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import classNames from 'classnames';
-import Button from '../Button/Button';
+import Button from '../Button';
 
 /**
  * Styles

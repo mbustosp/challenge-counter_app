@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import WelcomeScreen from './WelcomeScreen';
+import WelcomeScreen from './index';
 
-describe('Welcome screen', () => {
+describe('Index screen', () => {
   let welcomeScreen;
 
   beforeEach(() => {
