@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import challengeLogo from '../../assets/challenge_logo.svg';
+import ActionButton from '../../components/ActionButton/ActionButton';
 
 /**
  * Styles
@@ -10,6 +11,8 @@ import challengeLogo from '../../assets/challenge_logo.svg';
 import './WelcomeScreen.scss';
 
 const WelcomeScreen = () => {
+  const continueAction = () => true;
+
   return (
     <section className="welcome-screen">
       <div className="welcome-screen__logo">
@@ -22,7 +25,7 @@ const WelcomeScreen = () => {
         </p>
       </div>
       <div className="welcome-screen__button">
-        <button type="button">Get Started</button>
+        <ActionButton label="Get Started" onClick={continueAction} />
       </div>
     </section>
   );

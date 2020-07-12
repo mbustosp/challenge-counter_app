@@ -6,13 +6,23 @@ import { render, screen } from '@testing-library/react';
 import WelcomeScreen from './WelcomeScreen';
 
 describe('Welcome screen', () => {
+  let welcomeScreen;
+
+  beforeEach(() => {
+    welcomeScreen = render(<WelcomeScreen />);
+  });
+
   it('renders without crash', () => {
-    const welcomeScreen = render(<WelcomeScreen />);
     expect(welcomeScreen).not.toBeNull();
   });
 
   it('contains logo', () => {
-    render(<WelcomeScreen />);
-    expect(screen.getByAltText('Counters logo')).toBeInTheDocument();
+    const logo = screen.getByAltText('Counters logo');
+    expect(logo).not.toBeNull();
+  });
+
+  it('contains "Get Started" button', () => {
+    const getStartedButton = screen.getByRole('button', { text: 'Get Started' });
+    expect(getStartedButton).not.toBeNull();
   });
 });
