@@ -10,12 +10,13 @@ import Button from '../Button';
  */
 import './ActionButton.scss';
 
-const ActionButton = ({ onClick, label, lightTheme }) => {
+const ActionButton = ({ onClick, label, lightTheme, disabled }) => {
   return (
     <Button
       className={classNames('button--action', { 'button--action--light': lightTheme })}
       onClick={onClick}
       label={label}
+      disabled={disabled}
     />
   );
 };

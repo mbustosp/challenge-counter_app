@@ -15,4 +15,11 @@
     outline: none;
     box-shadow: 1px 1px 10px $color-app-tint;
   }
+
+  &:disabled {
+    &:hover, &:active, &:focus {
+      cursor: inherit;
+      filter: inherit;
+    }
+  }
 }

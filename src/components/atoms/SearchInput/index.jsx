@@ -12,9 +12,9 @@ import TextInput from '../TextInput';
  */
 import './SearchInput.scss';
 
-const SearchInput = ({ className, value, placeholder, onChange }) => {
+const SearchInput = ({ className, value, placeholder, onChange, disabled }) => {
   return (
-    <div className={classNames('search-input', className)}>
+    <div className={classNames('search-input', { 'search-input--disabled': disabled }, className)}>
       <div className="search-input__icon">
         <img src={glass} alt="search icon" />
       </div>
@@ -26,6 +26,7 @@ const SearchInput = ({ className, value, placeholder, onChange }) => {
         placeholder={placeholder}
         onChange={onChange}
         removeDefaultStyles
+        disabled={disabled}
       />
     </div>
   );
@@ -36,6 +37,7 @@ SearchInput.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 SearchInput.defaultProps = {
@@ -43,6 +45,7 @@ SearchInput.defaultProps = {
   placeholder: '',
   onChange: () => true,
   className: '',
+  disabled: false,
 };
 
 export default SearchInput;
