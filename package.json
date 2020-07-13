@@ -17,6 +17,7 @@
   "author": "Cornershop",
   "license": "ISC",
   "dependencies": {
+    "@component-driven/react-focus-within": "^2.0.1",
     "body-parser": "^1.16.1",
     "classnames": "^2.2.6",
     "concurrently": "^5.1.0",

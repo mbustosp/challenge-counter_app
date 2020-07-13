@@ -1140,6 +1140,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@component-driven/react-focus-within@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@component-driven/react-focus-within/-/react-focus-within-2.0.1.tgz#4c7ee7c426c7d064344500e163c4321e62bd3add"
+  integrity sha512-eu/QH0Yrh5I1jDfEEIOSRDY3+3sr87RSNgXrF7CVW20tbwcU7QDqxAsO5bRld2PlJFIGBzl6R4OlXhR8Po/A1A==
+  dependencies:
+    prop-types "^15.6.2"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
