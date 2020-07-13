@@ -10,14 +10,19 @@ import classNames from 'classnames';
  */
 import './TextInput.scss';
 
-const TextInput = ({ value, placeholder, onChange, className, removeDefaultStyles }) => {
+const TextInput = ({ value, placeholder, onChange, className, removeDefaultStyles, disabled }) => {
   return (
     <input
-      className={classNames({ 'text-input': !removeDefaultStyles }, className)}
+      className={classNames(
+        'text-input',
+        { 'text-input--non-generic': !removeDefaultStyles },
+        className,
+      )}
       type="text"
       value={value}
       placeholder={placeholder}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => (disabled ? false : onChange(e.target.value))}
+      disabled={disabled}
     />
   );
 };
@@ -28,6 +33,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func,
   className: PropTypes.string,
   removeDefaultStyles: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 TextInput.defaultProps = {
@@ -36,6 +42,7 @@ TextInput.defaultProps = {
   onChange: () => true,
   className: '',
   removeDefaultStyles: false,
+  disabled: false,
 };
 
 export default TextInput;

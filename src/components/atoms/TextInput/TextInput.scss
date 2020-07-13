@@ -1,34 +1,48 @@
 @import '../../../common/variables';
 
 .text-input {
-  width: 100%;
-  max-width: 380px;
-  height: 48px;
-  padding: 8px;
-  margin: 1px;
 
-  background: white;
-  border: 2px solid rgba(0, 0, 0, 0.02);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  &:disabled {
+    background: $color-input-disabled;
+  }
 
-  font-size: 16px;
-  line-height: 32px;
-  color: black;
-  caret-color: $color-app-tint;
-
-  &:hover, &:active, &:focus {
-    border: 2px solid $color-app-tint;
-    border-radius: 8px;
+  &--non-generic {
+    width: 100%;
+    max-width: 380px;
+    height: 48px;
+    padding: 8px;
     margin: 1px;
-    outline: none;
+
+    background: white;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    font-size: 16px;
+    line-height: 32px;
+    color: black;
+    caret-color: $color-app-tint;
+
+    &:hover, &:active, &:focus {
+      border: 2px solid $color-app-tint;
+      border-radius: 8px;
+      margin: 1px;
+      outline: none;
+    }
+
+    &:disabled {
+      &:hover, &:active, &:focus {
+        border: 2px solid rgba(0, 0, 0, 0.02);
+      }
+    }
+
+    &::placeholder {
+      color: $color-text-input-placeholder;
+      font-size: 17px;
+      line-height: 23px;
+    }
   }
 
-  &::placeholder {
-    color: $color-text-input-placeholder;
-    font-size: 17px;
-    line-height: 23px;
-  }
 
 
 }
