@@ -4,7 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import glass from '../../../assets/icons/glass.svg';
 import TextInput from '../TextInput';
 
 /**
@@ -16,7 +15,7 @@ const SearchInput = ({ className, value, placeholder, onChange, disabled }) => {
   return (
     <div className={classNames('search-input', { 'search-input--disabled': disabled }, className)}>
       <div className="search-input__icon">
-        <img src={glass} alt="search icon" />
+        <span className="icon icon-glass" />
       </div>
 
       <TextInput
