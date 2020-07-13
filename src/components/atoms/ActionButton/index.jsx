@@ -13,7 +13,11 @@ import './ActionButton.scss';
 const ActionButton = ({ onClick, label, lightTheme, disabled }) => {
   return (
     <Button
-      className={classNames('button--action', { 'button--action--light': lightTheme })}
+      className={classNames(
+        'button-action',
+        { 'button-action--disabled': disabled },
+        { 'button-action--light': lightTheme },
+      )}
       onClick={onClick}
       label={label}
       disabled={disabled}

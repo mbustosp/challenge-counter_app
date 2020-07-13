@@ -21,7 +21,7 @@ const TextInput = ({ value, placeholder, onChange, className, removeDefaultStyle
       type="text"
       value={value}
       placeholder={placeholder}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => (disabled ? false : onChange(e.target.value))}
       disabled={disabled}
     />
   );

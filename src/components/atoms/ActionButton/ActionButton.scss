@@ -1,6 +1,6 @@
 @import '../../../common/variables';
 
-.button--action {
+.button-action {
   min-width: 99px;
   min-height: 40px;
   padding: 8px 24px;
@@ -17,5 +17,10 @@
   &--light {
     background-color: white;
     color: $color-app-tint;
+  }
+
+  &--disabled {
+    background-color: $color-input-disabled;
+    color: white;
   }
 }
