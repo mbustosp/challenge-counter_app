@@ -1,0 +1,32 @@
+.loading-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 270px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__status {
+    max-width: 316px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    width: 90px;
+    min-width: unset;
+  }
+
+}
