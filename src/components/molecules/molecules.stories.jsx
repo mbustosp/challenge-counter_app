@@ -5,8 +5,10 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs/react';
+import { text, number } from '@storybook/addon-knobs';
 import WelcomeScreen from './Welcome';
 import SearchBar from './SearchBar';
+import Counter from './Counter';
 
 /**
  * Styles
@@ -25,6 +27,19 @@ storiesOf('Molecules', module)
         value={searchBarText}
         onChange={(value) => setSearchBarText(value)}
         onCancel={() => setSearchBarText('')}
+      />
+    );
+  })
+  .add('Counter', () => {
+    return (
+      <Counter
+        id={text('id', 'EMP-QUE-01')}
+        name={text('name', 'Empanadas de queso')}
+        value={number('count', 2)}
+        onIncrease={(key) => action(`Increasing ${key}`)()}
+        onDecrease={(key) => action(`Decreasing ${key}`)()}
+        onDelete={(key) => action(`Deleting ${key}`)()}
+        onSelection={(key) => action(`Selected ${key}`)()}
       />
     );
   });

@@ -1,0 +1,44 @@
+@import '../../../common/variables';
+
+.counter {
+  min-height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 24px;
+
+  &:hover {
+    filter: brightness(105%);
+  }
+
+  &:focus-within, &:focus, &:active {
+    background: rgba($color-app-tint, 0.2);
+    border-radius: 6px;
+    outline: none;
+  }
+
+  &__name {
+    width: 100%;
+    word-break: break-word;
+    letter-spacing: 0.02em;
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    min-width: 50px;
+
+    &__value {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 22px;
+      color: black;
+    }
+
+    &__operator {
+      color: $color-app-tint;
+      padding: 0 24px;
+    }
+  }
+}
