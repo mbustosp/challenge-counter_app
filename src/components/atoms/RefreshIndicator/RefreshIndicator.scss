@@ -1,0 +1,19 @@
+@import '../../../common/variables';
+
+.refresh-indicator {
+  color: $color-app-tint;
+  letter-spacing: 0.02em;
+  user-select: none;
+
+  &__icon {
+    margin-right: 6px;
+  }
+
+  &__button {
+    transition: transform 0.2s ease-in-out;
+    &:focus {
+      box-shadow: none;
+      transform: scale(1.2);
+    }
+  }
+}

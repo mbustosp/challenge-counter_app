@@ -1,7 +1,7 @@
 /**
  * Base dependencies
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs';
@@ -16,6 +16,8 @@ import CancelButton from './CancelButton';
  * Styles
  */
 import '../../common/_base.scss';
+import RefreshIndicator from './RefreshIndicator';
+import ActivityIndicator from './ActivityIndicator';
 
 storiesOf('Atoms', module)
   .addDecorator(withKnobs)
@@ -65,4 +67,14 @@ storiesOf('Atoms', module)
         disabled={boolean('disabled', false)}
       />
     );
-  });
+  })
+  .add('Refresh Indicator', () => {
+    const [refreshIndicatorActive, setRefreshIndicatorActive] = useState(false);
+    return (
+      <RefreshIndicator
+        isActive={boolean('isActive', refreshIndicatorActive)}
+        onClick={() => setRefreshIndicatorActive(!refreshIndicatorActive)}
+      />
+    );
+  })
+  .add('Activity Indicator', () => <ActivityIndicator />);
