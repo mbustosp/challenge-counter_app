@@ -5,22 +5,30 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  transition: transform 0.2s ease-in-out;
   padding: 24px;
 
-  &:hover {
-    filter: brightness(105%);
-  }
-
-  &:focus-within, &:focus, &:active {
+  &--selected {
+    transform: scale(0.96);
     background: rgba($color-app-tint, 0.2);
     border-radius: 6px;
     outline: none;
+  }
+
+  &:hover {
+    filter: brightness(105%);
   }
 
   &__name {
     width: 100%;
     word-break: break-word;
     letter-spacing: 0.02em;
+    user-select: none;
+  }
+
+  &:focus-within {
+    font-weight: 600;
+    outline: none;
   }
 
   &__actions {

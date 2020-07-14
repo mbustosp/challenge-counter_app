@@ -54,22 +54,4 @@ describe('Counter', () => {
     fireEvent.click(decreaseButton);
     expect(onDecrease).not.toHaveBeenCalled();
   });
-
-  it('should not call onDecrease callback when: value is less or equal to 0, - key is pressed and it is focused', () => {
-    const onDecrease = jest.fn();
-    const { getByRole } = render(<Counter id="1" value={0} onDecrease={onDecrease} />);
-    const counter = getByRole('menuitem');
-    counter.focus();
-    fireEvent.keyDown(counter, { key: '-', code: 'NumpadSubtract' });
-    expect(onDecrease).not.toHaveBeenCalled();
-  });
-
-  it('calls onSelection callback with param id when it gets focused', () => {
-    const onSelection = jest.fn((id) => id);
-    const counterId = '1';
-    const { getByRole } = render(<Counter id={counterId} onSelection={onSelection} />);
-    const counter = getByRole('menuitem');
-    counter.focus();
-    expect(onSelection).toHaveBeenCalledWith(counterId);
-  });
 });

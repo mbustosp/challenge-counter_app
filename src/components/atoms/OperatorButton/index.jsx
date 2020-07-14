@@ -16,7 +16,7 @@ export const OPERATION_TYPE = {
   MINUS: 'MINUS',
 };
 
-const OperatorButton = ({ onClick, className, operation, disabled, ariaLabel }) => {
+const OperatorButton = ({ onClick, className, operation, disabled, ariaLabel, disableFocus }) => {
   return (
     <Button
       className={classNames(
@@ -27,6 +27,7 @@ const OperatorButton = ({ onClick, className, operation, disabled, ariaLabel }) 
       onClick={onClick}
       disabled={disabled}
       ariaLabel={ariaLabel}
+      disableFocus={disableFocus}
     >
       {operation === OPERATION_TYPE.PLUS ? (
         <span className="icon icon-plus" />

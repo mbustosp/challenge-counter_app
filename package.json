@@ -17,12 +17,12 @@
   "author": "Cornershop",
   "license": "ISC",
   "dependencies": {
-    "@component-driven/react-focus-within": "^2.0.1",
     "body-parser": "^1.16.1",
     "classnames": "^2.2.6",
     "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.14.1",
+    "immer": "^7.0.5",
     "lodash": "^4.17.4",
     "morgan": "^1.8.1",
     "node-sass": "^4.14.1",

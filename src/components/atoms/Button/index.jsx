@@ -10,7 +10,7 @@ import classNames from 'classnames';
  */
 import './Button.scss';
 
-const Button = ({ onClick, disabled, children, label, className, ariaLabel }) => {
+const Button = ({ onClick, disabled, children, label, className, ariaLabel, disableFocus }) => {
   return (
     <button
       type="button"
@@ -18,6 +18,7 @@ const Button = ({ onClick, disabled, children, label, className, ariaLabel }) =>
       onClick={disabled ? null : onClick}
       disabled={disabled}
       aria-label={ariaLabel}
+      tabIndex={disableFocus ? -1 : 0}
     >
       {label || children}
     </button>
@@ -31,6 +32,7 @@ Button.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
   ariaLabel: PropTypes.string,
+  disableFocus: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -40,6 +42,7 @@ Button.defaultProps = {
   className: '',
   label: '',
   ariaLabel: 'Button',
+  disableFocus: false,
 };
 
 export default Button;
