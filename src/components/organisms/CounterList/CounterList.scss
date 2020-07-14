@@ -1,0 +1,29 @@
+@import '../../../common/variables';
+
+.counter-list {
+  padding: 0 24px;
+  &__status {
+    display: flex;
+
+    letter-spacing: 0.02em;
+
+    &__items {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    &__times {
+      color: $color-text-input-placeholder;
+      margin-right: 8px;
+    }
+
+    &__selected {
+      font-weight: 600;
+      margin-right: 8px;
+      color: $color-app-tint;
+    }
+  }
+
+  &__counters {
+  }
+}
