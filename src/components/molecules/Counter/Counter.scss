@@ -27,18 +27,19 @@
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    min-width: 50px;
+    justify-content: space-around;
 
     &__value {
       font-weight: 600;
       font-size: 20px;
       line-height: 22px;
       color: black;
+      width: 60px;
+      text-align: center;
     }
 
     &__operator {
       color: $color-app-tint;
-      padding: 0 24px;
     }
   }
 }
