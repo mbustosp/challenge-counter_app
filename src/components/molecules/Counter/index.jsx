@@ -14,7 +14,7 @@ import './Counter.scss';
 
 const Counter = ({
   id,
-  name,
+  title,
   value,
   isSelected,
   onIncrease,
@@ -53,7 +53,7 @@ const Counter = ({
         ref={ref}
         className={classNames('counter', { 'counter--selected': isSelected })}
       >
-        <div className="counter__name">{name}</div>
+        <div className="counter__name">{title}</div>
         <div className="counter__actions">
           <OperatorButton
             className="counter__actions__operator"
@@ -85,7 +85,7 @@ const Counter = ({
 
 Counter.propTypes = {
   id: PropTypes.string.isRequired,
-  name: PropTypes.string,
+  title: PropTypes.string,
   value: PropTypes.number,
   isSelected: PropTypes.bool,
   onIncrease: PropTypes.func,
@@ -95,7 +95,7 @@ Counter.propTypes = {
 };
 
 Counter.defaultProps = {
-  name: '',
+  title: '',
   value: 0,
   isSelected: false,
   onIncrease: () => true,

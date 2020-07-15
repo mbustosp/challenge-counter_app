@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-around;
   transition: transform 0.2s ease-in-out;
-  padding: 24px;
+  padding: 24px 0 24px 14px;
 
   &--selected {
     transform: scale(0.96);
@@ -48,6 +48,8 @@
 
     &__operator {
       color: $color-app-tint;
+      font-size: 12px;
+      padding: 0 19px;
     }
   }
 }

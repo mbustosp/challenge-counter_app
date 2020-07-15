@@ -51,7 +51,7 @@ const ShareTip = ({ selectedCounters, className, originRef }) => {
 ShareTip.propTypes = {
   selectedCounters: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
+      title: PropTypes.string,
       count: PropTypes.number,
     }),
   ).isRequired,

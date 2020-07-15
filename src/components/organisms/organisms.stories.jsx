@@ -34,7 +34,6 @@ storiesOf('Organisms', module)
   .addDecorator(withKnobs)
   .add('CounterList', () => {
     const [state, dispatch] = useReducer(appReducer, Object.freeze({ counters }));
-    console.log('Updating');
     return (
       <mainScreenContext.Provider value={{ dispatch }}>
         <CounterList counters={state.counters} />

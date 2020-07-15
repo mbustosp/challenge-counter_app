@@ -25,12 +25,12 @@ import '../../common/_base.scss';
 const selectedCounters = [
   {
     id: '1',
-    name: 'Cups of Coffee',
+    title: 'Cups of Coffee',
     count: 5,
   },
   {
     id: '2',
-    name: 'Records Played',
+    title: 'Records Played',
     count: 10,
   },
 ];
@@ -75,7 +75,7 @@ storiesOf('Molecules', module)
     return (
       <Counter
         id={text('id', 'EMP-QUE-01')}
-        name={text('name', 'Empanadas de queso')}
+        title={text('title', 'Empanadas de queso')}
         value={number('count', 2)}
         isSelected={boolean('isSelected', false)}
         onIncrease={(key) => action(`Increasing ${key}`)()}

@@ -18,7 +18,7 @@ describe('Counter', () => {
         onDecrease={() => true}
         onIncrease={() => true}
         value={5}
-        name="Empanadas de queso"
+        title="Empanadas de queso"
       />,
     );
     expect(counter).not.toBeNull();

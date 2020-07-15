@@ -15,6 +15,7 @@ import './ActionMenu.scss';
 const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
   const [showTip, setShowTip] = useState(false);
   const ref = useRef();
+  const selectedCountersIds = selectedCounters.map((counter) => counter.id);
 
   useRootClose(ref, () => setShowTip(false), {
     disabled: !showTip,
@@ -24,7 +25,7 @@ const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
     <div className="action-menu">
       {selectedCounters.length ? (
         <div className="action-menu__selection">
-          <ToolBarButton onClick={onDelete} lightTheme>
+          <ToolBarButton onClick={() => onDelete(selectedCountersIds)} lightTheme>
             <span
               className="action-menu__selection__delete icon icon-garbage"
               aria-label="delete"
@@ -59,7 +60,7 @@ const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
 ActionMenu.propTypes = {
   selectedCounters: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
+      title: PropTypes.string,
       count: PropTypes.number,
     }),
   ),

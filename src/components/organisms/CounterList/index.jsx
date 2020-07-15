@@ -11,17 +11,16 @@ import RefreshIndicator from '../../atoms/RefreshIndicator';
  */
 import mainScreenContext from '../../../state/context';
 import { decrementCounter, incrementCounter, selectCounter } from '../../../state/actions';
-import { getCardinality, getSelectedCount, getTotalCount } from '../../../utils/counterUtils';
+import { getCardinality, getTotalCount } from '../../../utils/counterUtils';
 
 /**
  * Styles
  */
 import './CounterList.scss';
 
-const CounterList = ({ counters }) => {
+const CounterList = ({ counters, selectedCount }) => {
   const items = getCardinality(counters);
   const times = getTotalCount(counters);
-  const selectedCount = getSelectedCount(counters);
   const { dispatch } = useContext(mainScreenContext);
 
   return (
@@ -45,7 +44,7 @@ const CounterList = ({ counters }) => {
           <Counter
             key={id}
             id={id}
-            name={title}
+            title={title}
             value={count}
             isSelected={isSelected}
             onSelection={() => dispatch(selectCounter(id))}
@@ -67,6 +66,11 @@ CounterList.propTypes = {
       isSelected: PropTypes.bool,
     }),
   ).isRequired,
+  selectedCount: PropTypes.number,
+};
+
+CounterList.defaultProps = {
+  selectedCount: 0,
 };
 
 export default CounterList;

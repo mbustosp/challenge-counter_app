@@ -28,7 +28,7 @@ const counters = Array(10)
   .fill()
   .map((val, key) => ({
     id: `${key}`,
-    name: faker.commerce.productName(),
+    title: faker.commerce.productName(),
     count: faker.random.number(),
   }));
 

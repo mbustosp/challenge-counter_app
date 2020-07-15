@@ -30,7 +30,7 @@ PaperNote.propTypes = {
   selectedCounters: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
-      name: PropTypes.string,
+      title: PropTypes.string,
       count: PropTypes.number,
     }),
   ).isRequired,
