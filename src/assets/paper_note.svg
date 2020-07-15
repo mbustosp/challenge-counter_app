@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86.41340770217221" height="86.17877078304124" fill="none" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" class="" style=""/>
+    <defs>
+        <filter id="filter0_d" x="0" y="0" width="100" height="100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset dy="2"/>
+            <feGaussianBlur stdDeviation="4"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+        </filter>
+    </defs>
+    <g class="currentLayer" style=""><title>Layer 1</title><g filter="url(#filter0_d)" id="svg_1" class="">
+        <rect x="1.2960891723632812" y="0.9720668792724609" width="84" height="84" rx="4" fill="white" id="svg_2"/>
+        <rect x="1.7960891723632812" y="1.472066879272461" width="83" height="83" rx="3.5" stroke="black" stroke-opacity="0.1" id="svg_3"/>
+    </g><circle cx="9.796089172363281" cy="9.472066879272461" r="2.5" fill="white" id="svg_4" class=""/><circle cx="9.796089172363281" cy="9.472066879272461" r="3" stroke="black" stroke-opacity="0.1" id="svg_5" class=""/><circle cx="9.796089172363281" cy="19.47206687927246" r="2.5" fill="white" id="svg_6" class=""/><circle cx="9.796089172363281" cy="19.47206687927246" r="3" stroke="black" stroke-opacity="0.1" id="svg_7" class=""/><circle cx="9.796089172363281" cy="29.47206687927246" r="2.5" fill="white" id="svg_8" class=""/><circle cx="9.796089172363281" cy="29.47206687927246" r="3" stroke="black" stroke-opacity="0.1" id="svg_9" class=""/><circle cx="9.796089172363281" cy="39.47206687927246" r="2.5" fill="white" id="svg_10" class=""/><circle cx="9.796089172363281" cy="39.47206687927246" r="3" stroke="black" stroke-opacity="0.1" id="svg_11" class=""/><circle cx="9.796089172363281" cy="49.47206687927246" r="2.5" fill="white" id="svg_12" class=""/><circle cx="9.796089172363281" cy="49.47206687927246" r="3" stroke="black" stroke-opacity="0.1" id="svg_13" class=""/><circle cx="9.796089172363281" cy="59.47206687927246" r="2.5" fill="white" id="svg_14" class=""/><circle cx="9.796089172363281" cy="59.47206687927246" r="3" stroke="black" stroke-opacity="0.1" id="svg_15" class=""/><circle cx="9.796089172363281" cy="69.47206687927246" r="2.5" fill="white" id="svg_16" class=""/><circle cx="9.796089172363281" cy="69.47206687927246" r="3" stroke="black" stroke-opacity="0.1" id="svg_17" class=""/><rect opacity="0.2" x="17.29608917236328" y="0.9720668792724609" width="1" height="84" fill="#FF3B30" id="svg_18" class=""/></g></svg>
