@@ -1,0 +1,45 @@
+@import '../../../common/variables';
+
+.share-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 336px;
+  min-height: 124px;
+  padding: 12px 18px;
+  position: relative;
+
+  background: $color-background-tip;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 24px 38px rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 111px;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: $color-background-tip transparent transparent transparent;
+    box-shadow: 0 24px 38px rgba(0, 0, 0, 0.14);
+  }
+
+  &__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+      margin-bottom: 12px;
+    }
+    &__button {
+      width: 90px;
+    }
+  }
+
+  &__preview {
+    margin-left: 27px;
+  }
+}

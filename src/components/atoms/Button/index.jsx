@@ -16,6 +16,7 @@ const Button = ({ onClick, disabled, children, label, className, ariaLabel, disa
       type="button"
       className={classNames('button', className)}
       onClick={disabled ? null : onClick}
+      onKeyUp={(event) => (event.key !== 'Enter' ? onClick() : null)} // Use `.key` instead.}
       disabled={disabled}
       aria-label={ariaLabel}
       tabIndex={disableFocus ? -1 : 0}

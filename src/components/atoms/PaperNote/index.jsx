@@ -4,6 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import paperNote from '../../../assets/paper_note.svg';
+import { parseToText } from '../../../utils/counterUtils';
 
 /**
  * Styles
@@ -16,12 +17,9 @@ const PaperNote = ({ selectedCounters, listMaxLength }) => {
       <img className="paper-note__figure" src={paperNote} alt="Paper note" />
       <div className="paper-note__text">
         <ol>
-          {selectedCounters
-            .map((counter) => `${counter.count} x ${counter.name}`)
-            .slice(0, listMaxLength)
-            .map((counter) => (
-              <li>{counter}</li>
-            ))}
+          {selectedCounters.slice(0, listMaxLength).map((counter) => (
+            <li key={counter.id}>{parseToText(counter)}</li>
+          ))}
         </ol>
       </div>
     </div>
@@ -31,6 +29,7 @@ const PaperNote = ({ selectedCounters, listMaxLength }) => {
 PaperNote.propTypes = {
   selectedCounters: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string,
       name: PropTypes.string,
       count: PropTypes.number,
     }),
