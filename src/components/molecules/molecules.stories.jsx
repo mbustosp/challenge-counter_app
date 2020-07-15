@@ -11,13 +11,13 @@ import SearchBar from './SearchBar';
 import Counter from './Counter';
 import NoCounters from './NoCounters';
 import ErrorLoading from './LoadingError';
+import ActionMenu from './ActionMenu';
+import ShareTip from './ShareTip';
 
 /**
  * Styles
  */
 import '../../common/_base.scss';
-import ActionMenu from './ActionMenu';
-import ShareTip from './ShareTip';
 
 /**
  * Data

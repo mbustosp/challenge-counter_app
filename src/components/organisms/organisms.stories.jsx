@@ -4,6 +4,7 @@
 import React, { useReducer } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs/react';
+import faker from 'faker';
 import CounterList from './CounterList';
 
 /**
@@ -20,38 +21,20 @@ import appReducer from '../../state/reducer';
 /**
  * Data
  */
-const counters = [
-  {
-    id: '1',
-    title: 'Cups of Coffee',
-    count: 5,
+const counters = Array(100)
+  .fill()
+  .map((val, key) => ({
+    id: `${key}`,
+    title: faker.commerce.productName(),
+    count: faker.random.number(),
     isSelected: false,
-  },
-  {
-    id: '2',
-    title: 'Records Played',
-    count: 10,
-    isSelected: false,
-  },
-  {
-    id: '3',
-    title: 'Number of times I’ve forgotten my mother’s name because I was high on Frugelés.',
-    count: 2,
-    isSelected: false,
-  },
-  {
-    id: '4',
-    title: 'Apples Eaten',
-    count: 0,
-    isSelected: false,
-  },
-];
+  }));
 
 storiesOf('Organisms', module)
   .addDecorator(withKnobs)
   .add('CounterList', () => {
-    const [state, dispatch] = useReducer(appReducer, { counters });
-
+    const [state, dispatch] = useReducer(appReducer, Object.freeze({ counters }));
+    console.log('Updating');
     return (
       <mainScreenContext.Provider value={{ dispatch }}>
         <CounterList counters={state.counters} />
