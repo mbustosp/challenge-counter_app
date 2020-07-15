@@ -12,6 +12,7 @@ import './ToolBarButton.scss';
 
 const ToolBarButton = ({
   onClick,
+  onBlur,
   label,
   className,
   disabled,
@@ -31,6 +32,7 @@ const ToolBarButton = ({
       label={label}
       disabled={disabled}
       ariaLabel={ariaLabel}
+      onBlur={onBlur}
     >
       {children}
     </Button>

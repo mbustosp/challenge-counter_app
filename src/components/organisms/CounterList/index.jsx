@@ -11,6 +11,7 @@ import RefreshIndicator from '../../atoms/RefreshIndicator';
  */
 import mainScreenContext from '../../../state/context';
 import { decrementCounter, incrementCounter, selectCounter } from '../../../state/actions';
+import { getCardinality, getSelectedCount, getTotalCount } from '../../../utils/counterUtils';
 
 /**
  * Styles
@@ -18,9 +19,9 @@ import { decrementCounter, incrementCounter, selectCounter } from '../../../stat
 import './CounterList.scss';
 
 const CounterList = ({ counters }) => {
-  const items = counters.length;
-  const times = counters.map((a) => a.count).reduce((a, b) => a + b, 0);
-  const selectedCount = counters.filter((a) => a.isSelected).length;
+  const items = getCardinality(counters);
+  const times = getTotalCount(counters);
+  const selectedCount = getSelectedCount(counters);
   const { dispatch } = useContext(mainScreenContext);
 
   return (

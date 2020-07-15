@@ -1,10 +1,9 @@
 @import '../../../common/variables';
 
 .counter-list {
-  padding: 0 24px;
   &__status {
     display: flex;
-
+    padding: 0 24px;
     letter-spacing: 0.02em;
 
     &__items {

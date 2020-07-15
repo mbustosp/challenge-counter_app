@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs/react';
-import { text, number, boolean } from '@storybook/addon-knobs';
+import { text, number, boolean, object } from '@storybook/addon-knobs';
 import WelcomeScreen from './Welcome';
 import SearchBar from './SearchBar';
 import Counter from './Counter';
@@ -16,6 +16,24 @@ import ErrorLoading from './LoadingError';
  * Styles
  */
 import '../../common/_base.scss';
+import ActionMenu from './ActionMenu';
+import ShareTip from './ShareTip';
+
+/**
+ * Data
+ */
+const selectedCounters = [
+  {
+    id: '1',
+    name: 'Cups of Coffee',
+    count: 5,
+  },
+  {
+    id: '2',
+    name: 'Records Played',
+    count: 10,
+  },
+];
 
 // eslint-disable-next-line react/prop-types
 const FullScreen = ({ children }) => (
@@ -34,6 +52,15 @@ const FullScreen = ({ children }) => (
 
 storiesOf('Molecules', module)
   .addDecorator(withKnobs)
+  .add('Share Tip', () => {
+    const label = 'Selected Counters';
+    const defaultValue = {
+      selectedCounters,
+    };
+    const groupId = 'GROUP-SHARE-TIP';
+
+    return <ShareTip selectedCounters={object(label, defaultValue.selectedCounters, groupId)} />;
+  })
   .add('SearchBar', () => {
     const [searchBarText, setSearchBarText] = useState('');
     return (
@@ -56,6 +83,23 @@ storiesOf('Molecules', module)
         onDelete={(key) => action(`Deleting ${key}`)()}
         onSelection={(key) => action(`Selected ${key}`)()}
       />
+    );
+  })
+  .add('Action Menu', () => {
+    const label = 'Selected Counters';
+    const defaultValue = {
+      selectedCounters,
+    };
+    const groupId = 'GROUP-ID1';
+
+    return (
+      <FullScreen>
+        <ActionMenu
+          onAdd={action('Add')}
+          onDelete={action('Delete')}
+          selectedCounters={object(label, defaultValue.selectedCounters, groupId)}
+        />
+      </FullScreen>
     );
   })
   .add('Main Screen - Welcome', () => {

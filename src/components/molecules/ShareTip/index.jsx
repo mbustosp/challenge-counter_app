@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import classNames from 'classnames';
 import { getCardinality, parseToText } from '../../../utils/counterUtils';
 import ActionButton from '../../atoms/ActionButton';
 import PaperNote from '../../atoms/PaperNote';
@@ -13,7 +14,7 @@ import PaperNote from '../../atoms/PaperNote';
  */
 import './ShareTip.scss';
 
-const ShareTip = ({ selectedCounters }) => {
+const ShareTip = ({ selectedCounters, className, originRef }) => {
   const [isCopied, setCopied] = useState(false);
   const count = getCardinality(selectedCounters);
   const copyPhrase = `Share ${count} counter${count > 1 ? 's' : ''}`;
@@ -24,7 +25,12 @@ const ShareTip = ({ selectedCounters }) => {
   };
 
   return (
-    <div className="share-tip">
+    <div
+      className={classNames('share-tip', className)}
+      tabIndex={0}
+      role="menuitem"
+      ref={originRef}
+    >
       <div className="share-tip__action">
         <h1 className="share-tip__action__title">{copyPhrase}</h1>
         <CopyToClipboard text={textToCopy} onCopy={onCopy}>
@@ -49,8 +55,16 @@ ShareTip.propTypes = {
       count: PropTypes.number,
     }),
   ).isRequired,
+  className: PropTypes.string,
+  originRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
-ShareTip.defaultProps = {};
+ShareTip.defaultProps = {
+  className: '',
+  originRef: null,
+};
 
 export default ShareTip;

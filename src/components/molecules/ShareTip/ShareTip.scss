@@ -26,6 +26,11 @@
     box-shadow: 0 24px 38px rgba(0, 0, 0, 0.14);
   }
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 24px 38px rgba(0, 0, 0, 0.18);
+  }
+
   &__action {
     display: flex;
     flex-direction: column;
