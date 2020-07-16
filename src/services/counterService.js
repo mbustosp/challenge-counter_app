@@ -8,6 +8,7 @@ import {
   setCountAction,
   successfulLoadAction,
   loadCountersAction,
+  deleteCountersAction,
 } from '../components/pages/Main/actions';
 
 export const fetchCounters = (dispatch) => (isRefreshing) => {
@@ -56,5 +57,7 @@ export const deleteCounters = (dispatch) => (ids) => {
     }).catch(() => errors.push(id)),
   );
 
-  Promise.all(requests).then(() => fetchCounters(dispatch)());
+  Promise.all(requests).then(() =>
+    dispatch(deleteCountersAction(ids.filter((id) => !errors.includes(id)))),
+  );
 };

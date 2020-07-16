@@ -42,6 +42,9 @@ const reducer = produce((draft, action) => {
       index = draft.counters.findIndex((counter) => counter.id === action.id);
       if (index !== -1) draft.counters[index].isSelected = !draft.counters[index].isSelected;
       break;
+    case COUNTER_ACTIONS.DELETE:
+      draft.counters = draft.counters.filter((counter) => !action.ids.includes(counter.id));
+      break;
     case COUNTER_ACTIONS.SEARCH:
       draft.search = action.search;
       break;
