@@ -20,6 +20,4 @@ const ActivityIndicator = () => {
   );
 };
 
-ActivityIndicator.propTypes = {};
-
 export default ActivityIndicator;

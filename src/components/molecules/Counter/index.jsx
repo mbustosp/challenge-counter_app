@@ -57,10 +57,7 @@ const Counter = ({
         <div className="counter__actions">
           <OperatorButton
             className="counter__actions__operator"
-            onClick={(e) => {
-              e.stopPropagation();
-              decreaseCounter();
-            }}
+            onClick={decreaseCounter}
             operation={OPERATION_TYPE.MINUS}
             disabled={value <= 0}
             ariaLabel="Decrease Value"
@@ -69,10 +66,7 @@ const Counter = ({
           <div className="counter__actions__value">{value}</div>
           <OperatorButton
             className="counter__actions__operator"
-            onClick={(e) => {
-              e.stopPropagation();
-              increaseCounter();
-            }}
+            onClick={increaseCounter}
             operation={OPERATION_TYPE.PLUS}
             ariaLabel="Increase Value"
             disableFocus

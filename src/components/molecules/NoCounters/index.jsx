@@ -13,8 +13,8 @@ const NoCounters = () => {
     <div className="no-counters">
       <h1 className="no-counters__title">No counters yet</h1>
       <p className="no-counters__quote">
-        &apos When I started counting my blessings, my whole life turned around. &apos —Willie
-        Nelson
+        &quot;I started counting my blessings, my whole life turned around.&quot;
+        <span style={{ display: 'block' }}> — Willie Nelson</span>
       </p>
     </div>
   );

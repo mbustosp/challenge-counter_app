@@ -1,7 +1,7 @@
 /**
  * Core dependencies
  */
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Counter from '../../molecules/Counter';
 import RefreshIndicator from '../../atoms/RefreshIndicator';
@@ -9,8 +9,6 @@ import RefreshIndicator from '../../atoms/RefreshIndicator';
 /**
  * State
  */
-import mainScreenContext from '../../../state/context';
-import { decrementCounter, incrementCounter, selectCounter } from '../../../state/actions';
 import { getCardinality, getTotalCount } from '../../../utils/counterUtils';
 
 /**
@@ -18,10 +16,17 @@ import { getCardinality, getTotalCount } from '../../../utils/counterUtils';
  */
 import './CounterList.scss';
 
-const CounterList = ({ counters, selectedCount }) => {
+const CounterList = ({
+  counters,
+  selectedCount,
+  isRefreshing,
+  onRefresh,
+  onSelect,
+  onIncrease,
+  onDecrease,
+}) => {
   const items = getCardinality(counters);
   const times = getTotalCount(counters);
-  const { dispatch } = useContext(mainScreenContext);
 
   return (
     <div className="counter-list">
@@ -36,22 +41,24 @@ const CounterList = ({ counters, selectedCount }) => {
         )}
 
         <div className="counter-list__status__refresh">
-          <RefreshIndicator onClick={() => true} />
+          <RefreshIndicator isActive={isRefreshing} onClick={onRefresh} />
         </div>
       </div>
       <div className="counter-list__counters">
-        {counters.map(({ id, title, count, isSelected }) => (
-          <Counter
-            key={id}
-            id={id}
-            title={title}
-            value={count}
-            isSelected={isSelected}
-            onSelection={() => dispatch(selectCounter(id))}
-            onIncrease={() => dispatch(incrementCounter(id))}
-            onDecrease={() => dispatch(decrementCounter(id))}
-          />
-        ))}
+        <div className="counter-list__counters_container">
+          {counters.map(({ id, title, count, isSelected }) => (
+            <Counter
+              key={id}
+              id={id}
+              title={title}
+              value={count}
+              isSelected={isSelected}
+              onSelection={onSelect}
+              onIncrease={onIncrease}
+              onDecrease={onDecrease}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -67,10 +74,20 @@ CounterList.propTypes = {
     }),
   ).isRequired,
   selectedCount: PropTypes.number,
+  onRefresh: PropTypes.func,
+  onSelect: PropTypes.func,
+  onIncrease: PropTypes.func,
+  onDecrease: PropTypes.func,
+  isRefreshing: PropTypes.bool,
 };
 
 CounterList.defaultProps = {
   selectedCount: 0,
+  onRefresh: () => true,
+  onSelect: () => true,
+  onIncrease: () => true,
+  onDecrease: () => true,
+  isRefreshing: false,
 };
 
 export default CounterList;

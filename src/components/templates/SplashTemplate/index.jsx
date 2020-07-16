@@ -18,7 +18,7 @@ const SplashTemplate = ({ children }) => {
 };
 
 SplashTemplate.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default SplashTemplate;

@@ -11,8 +11,9 @@ import SearchBar from './SearchBar';
 import Counter from './Counter';
 import NoCounters from './NoCounters';
 import ErrorLoading from './LoadingError';
-import ActionMenu from './ActionMenu';
 import ShareTip from './ShareTip';
+import Fullscreen from '../../../.storybook/components/Fullscreen';
+import NoResults from './NoResults';
 
 /**
  * Styles
@@ -34,21 +35,6 @@ const selectedCounters = [
     count: 10,
   },
 ];
-
-// eslint-disable-next-line react/prop-types
-const FullScreen = ({ children }) => (
-  <div
-    style={{
-      minHeight: '100vh',
-      height: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-  >
-    {children}
-  </div>
-);
 
 storiesOf('Molecules', module)
   .addDecorator(withKnobs)
@@ -85,37 +71,25 @@ storiesOf('Molecules', module)
       />
     );
   })
-  .add('Action Menu', () => {
-    const label = 'Selected Counters';
-    const defaultValue = {
-      selectedCounters,
-    };
-    const groupId = 'GROUP-ID1';
-
+  .add('Welcome Screen', () => {
     return (
-      <FullScreen>
-        <ActionMenu
-          onAdd={action('Add')}
-          onDelete={action('Delete')}
-          selectedCounters={object(label, defaultValue.selectedCounters, groupId)}
-        />
-      </FullScreen>
-    );
-  })
-  .add('Main Screen - Welcome', () => {
-    return (
-      <FullScreen>
+      <Fullscreen>
         <WelcomeScreen onGetStarted={action('Let us get started!')} />
-      </FullScreen>
+      </Fullscreen>
     );
   })
   .add('Main Screen - No Counters', () => (
-    <FullScreen>
+    <Fullscreen>
       <NoCounters />
-    </FullScreen>
+    </Fullscreen>
+  ))
+  .add('Main Screen - No Results', () => (
+    <Fullscreen>
+      <NoResults />
+    </Fullscreen>
   ))
   .add('Main Screen - Loading error', () => (
-    <FullScreen>
+    <Fullscreen>
       <ErrorLoading retry={action('Retry!')} />
-    </FullScreen>
+    </Fullscreen>
   ));

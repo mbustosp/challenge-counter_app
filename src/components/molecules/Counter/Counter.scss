@@ -36,6 +36,7 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: space-around;
+    overflow: hidden;
 
     &__value {
       font-weight: 600;

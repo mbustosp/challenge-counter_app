@@ -13,7 +13,7 @@ import './RefreshIndicator.scss';
 
 const RefreshIndicator = ({ isActive, onClick }) => {
   const button = (
-    <Button onClick={onClick} ariaLabel="Refresh" className="refresh-indicator__button">
+    <Button onClick={onClick} ariaLabel="refresh" className="refresh-indicator__button">
       <span className="icon icon-refresh" />
     </Button>
   );
@@ -22,7 +22,7 @@ const RefreshIndicator = ({ isActive, onClick }) => {
     <Animate show appear type="fade">
       <div className="refresh-indicator">
         <span className="refresh-indicator__icon icon icon-refresh" />
-        Refreshing...
+        <div className="refresh-indicator__message">Refreshing...</div>
       </div>
     </Animate>
   );

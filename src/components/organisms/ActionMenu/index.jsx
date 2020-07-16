@@ -5,7 +5,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useRootClose from 'react-overlays/useRootClose';
 import ToolBarButton from '../../atoms/ToolBarButton';
-import ShareTip from '../ShareTip';
+import ShareTip from '../../molecules/ShareTip';
 
 /**
  * Styles
@@ -25,15 +25,16 @@ const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
     <div className="action-menu">
       {selectedCounters.length ? (
         <div className="action-menu__selection">
-          <ToolBarButton onClick={() => onDelete(selectedCountersIds)} lightTheme>
-            <span
-              className="action-menu__selection__delete icon icon-garbage"
-              aria-label="delete"
-            />
+          <ToolBarButton
+            onClick={() => onDelete(selectedCountersIds)}
+            lightTheme
+            ariaLabel="delete"
+          >
+            <span className="action-menu__selection__delete icon icon-garbage" />
           </ToolBarButton>
           <div className="action-menu__selection__share-wrapper">
-            <ToolBarButton onClick={() => setShowTip(!showTip)} lightTheme>
-              <span className="action-menu__selection__share icon icon-share" aria-label="share" />
+            <ToolBarButton onClick={() => setShowTip(!showTip)} lightTheme ariaLabel="share">
+              <span className="action-menu__selection__share icon icon-share" />
             </ToolBarButton>
             {showTip ? (
               <div className="action-menu__selection__tip">
@@ -49,8 +50,8 @@ const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
       ) : null}
 
       <div className="action-menu__add">
-        <ToolBarButton onClick={onAdd}>
-          <span className="icon icon-plus" aria-label="add" />
+        <ToolBarButton onClick={onAdd} aria-label="add">
+          <span className="icon icon-plus" />
         </ToolBarButton>
       </div>
     </div>
