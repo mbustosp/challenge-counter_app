@@ -1,0 +1,42 @@
+.main-template {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+
+  &__header {
+    width: 100%;
+    max-width: 570px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    max-width: 570px;
+    margin: 24px auto 0;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    width: 100%;
+
+    &:before {
+      content: "\a0";
+      display: block;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &__content {
+      width: 100%;
+      max-width: 570px;
+      padding: 0 24px;
+      margin: 15px auto;
+    }
+  }
+}
