@@ -50,7 +50,7 @@ const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
       ) : null}
 
       <div className="action-menu__add">
-        <ToolBarButton onClick={onAdd} aria-label="add">
+        <ToolBarButton onClick={onAdd} ariaLabel="add">
           <span className="icon icon-plus" />
         </ToolBarButton>
       </div>

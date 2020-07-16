@@ -20,14 +20,13 @@ describe('Action Menu', () => {
   });
 
   it('delete and share buttons are visible when selected counters are provided', () => {
-    const { queryByLabelText, debug } = render(
+    const { queryByLabelText } = render(
       <ActionMenu
         onDelete={() => true}
         onAdd={() => true}
         selectedCounters={[{ id: 1 }, { id: 2 }]}
       />,
     );
-    debug();
     expect(queryByLabelText('share')).not.toBeNull();
     expect(queryByLabelText('delete')).not.toBeNull();
   });
