@@ -55,4 +55,11 @@ describe('Button', () => {
     fireEvent.click(getByText(buttonLabel));
     expect(actionOnClick).toHaveBeenCalledTimes(0);
   });
+
+  it('does not gets focused if disableFocus is enabled', () => {
+    const buttonLabel = 'I am not in the mood to receive clicks';
+    const { getByRole } = render(<Button disableFocus label={buttonLabel} />);
+    const button = getByRole('button');
+    expect(button).not.toHaveFocus();
+  });
 });

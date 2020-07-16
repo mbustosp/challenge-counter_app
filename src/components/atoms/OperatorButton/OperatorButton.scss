@@ -1,0 +1,33 @@
+@import '../../../common/variables';
+
+.button-operator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  width: 18px;
+  transition: transform 0.1s ease-in;
+
+  &__operator {
+    color: $color-app-tint;
+  }
+
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
+
+  &--disabled, &__operator {
+    .icon {
+      color: $color-input-disabled;
+    }
+
+    &:hover {
+      filter: none;
+    }
+  }
+}

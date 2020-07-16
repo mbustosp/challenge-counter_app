@@ -1,21 +1,36 @@
 /**
  * Base dependencies
  */
-import React from 'react';
+import faker from 'faker';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean, number } from '@storybook/addon-knobs';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import ActionButton from './ActionButton';
 import Button from './Button';
 import TextInput from './TextInput';
 import SearchInput from './SearchInput';
 import CancelButton from './CancelButton';
+import RefreshIndicator from './RefreshIndicator';
+import ActivityIndicator from './ActivityIndicator';
+import PaperNote from './PaperNote';
 
 /**
  * Styles
  */
 import '../../common/_base.scss';
+
+/**
+ * Data
+ */
+const counters = Array(10)
+  .fill()
+  .map((val, key) => ({
+    id: `${key}`,
+    title: faker.commerce.productName(),
+    count: faker.random.number(),
+  }));
 
 storiesOf('Atoms', module)
   .addDecorator(withKnobs)
@@ -65,4 +80,17 @@ storiesOf('Atoms', module)
         disabled={boolean('disabled', false)}
       />
     );
-  });
+  })
+  .add('Refresh Indicator', () => {
+    const [refreshIndicatorActive, setRefreshIndicatorActive] = useState(false);
+    return (
+      <RefreshIndicator
+        isActive={boolean('isActive', refreshIndicatorActive)}
+        onClick={() => setRefreshIndicatorActive(!refreshIndicatorActive)}
+      />
+    );
+  })
+  .add('Activity Indicator', () => <ActivityIndicator />)
+  .add('Paper Note', () => (
+    <PaperNote selectedCounters={counters} listMaxLength={number('listMaxLength', 5)} />
+  ));

@@ -1,0 +1,36 @@
+@import '../../../common/variables';
+
+.action-menu {
+  display: flex;
+  width: 100%;
+
+  &__selection {
+    display: flex;
+    flex-grow: 1;
+
+    button:first-child {
+      margin-right: 18px;
+    }
+
+    &__share-wrapper {
+      position: relative;
+    }
+
+    &__tip {
+      position: absolute;
+      bottom: 56px;
+      left: -76px;
+    }
+
+    &__delete {
+      color: $color-destructive-red;
+    }
+  }
+
+  &__add {
+    flex-grow: 1;
+    button {
+      margin-left: auto;
+    }
+  }
+}

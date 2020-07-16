@@ -1,0 +1,56 @@
+@import '../../../common/variables';
+
+.counter {
+  min-height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: transform 0.2s ease-in-out;
+  padding: 24px 0 24px 14px;
+
+  &--selected {
+    transform: scale(0.96);
+    background: rgba($color-app-tint, 0.2);
+    border-radius: 6px;
+    outline: none;
+  }
+
+  &:hover {
+    filter: brightness(105%);
+  }
+
+  &__name {
+    width: 100%;
+    word-break: break-word;
+    letter-spacing: 0.02em;
+    user-select: none;
+  }
+
+  &:focus-within {
+    font-weight: 600;
+    outline: none;
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+
+    &__value {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 22px;
+      color: black;
+      width: 60px;
+      text-align: center;
+    }
+
+    &__operator {
+      color: $color-app-tint;
+      font-size: 12px;
+      padding: 0 19px;
+    }
+  }
+}

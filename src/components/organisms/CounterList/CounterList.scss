@@ -1,0 +1,42 @@
+@import '../../../common/variables';
+
+.counter-list {
+  position: relative;
+  height: 100%;
+
+  &__status {
+    display: flex;
+    letter-spacing: 0.02em;
+    padding-left: 24px;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(white, 0.9);
+    z-index: 1;
+
+    &__items {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    &__times {
+      color: $color-text-input-placeholder;
+      margin-right: 8px;
+    }
+
+    &__selected {
+      font-weight: 600;
+      margin-right: 8px;
+      color: $color-app-tint;
+    }
+  }
+
+  &__counters {
+    overflow-y: auto;
+    height: 100%;
+    padding-top: 24px;
+
+    &__container {
+      padding-left: 10px;
+    }
+  }
+}

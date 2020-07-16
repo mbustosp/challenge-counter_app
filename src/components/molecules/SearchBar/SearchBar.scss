@@ -3,7 +3,8 @@
   justify-content: center;
 
   &__search-input {
-    width: 380px;
+    width: 100%;
+    max-width: 380px;
   }
 
   &__cancel {
