@@ -1,0 +1,29 @@
+@import '../../../common/variables';
+
+.button {
+  transition: box-shadow, transform .1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  &:disabled {
+    &:hover, &:active, &:focus {
+      cursor: inherit;
+      filter: inherit;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.examples-modal {
+  z-index: 4;
+
+  &__content {
+    &__section {
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 23px;
+      margin-bottom: 10px;
+    }
+
+    &__examples {
+      overflow-x: auto;
+    }
+
+    &--overflow {
+      padding-right: 0;
+    }
+  }
+}

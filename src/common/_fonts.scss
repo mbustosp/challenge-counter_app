@@ -1,0 +1,25 @@
+@import "variables";
+
+@font-face {
+  font-family: 'Avenir Next';
+  font-weight: normal;
+  src: local('Avenir Next'), url(../assets/fonts/AvenirNextLTPro-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  font-weight: 600;
+  src: local('Avenir Next'), url(../assets/fonts/AvenirNextLTPro-Demi.otf) format('opentype');
+}
+
+@font-face {
+  font-family: '#{$counters-font-family}';
+  src:  url('../assets/fonts/#{$counters-font-family}.eot?t4gm9h');
+  src:  url('../assets/fonts/#{$counters-font-family}.eot?t4gm9h#iefix') format('embedded-opentype'),
+  url('../assets/fonts/#{$counters-font-family}.ttf?t4gm9h') format('truetype'),
+  url('../assets/fonts/#{$counters-font-family}.woff?t4gm9h') format('woff'),
+  url('../assets/fonts/#{$counters-font-family}.svg?t4gm9h##{$counters-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}

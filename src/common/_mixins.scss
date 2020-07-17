@@ -1,0 +1,22 @@
+@mixin blur-overlay($color: rgba(white, 0.8)) {
+  &--blur {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $color;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+}
+
+@mixin centered-container() {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 570px;
+  width: 100%;
+}
