@@ -38,7 +38,7 @@ export const decreaseCounter = (onSuccess, onFailure) => (reqId) => {
 
 export const deleteCounters = (onSuccess, onFailure) => (ids) => {
   const errors = [];
-  const requests = ids.map((id) =>
+  const requests = ids.map(({ id }) =>
     fetch('/api/v1/counter', {
       method: 'DELETE', // or 'PUT'
       headers: {
@@ -47,5 +47,5 @@ export const deleteCounters = (onSuccess, onFailure) => (ids) => {
       body: JSON.stringify({ id }),
     }).catch(() => errors.push(id)),
   );
-  Promise.all(requests).then(() => onSuccess());
+  Promise.all(requests).then(() => (errors.length ? onFailure() : onSuccess()));
 };

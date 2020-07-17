@@ -39,7 +39,7 @@ storiesOf('Organisms', module)
       <Fullscreen>
         <ActionMenu
           onAdd={action('Add')}
-          onDelete={action('Delete')}
+          onChange={action('Changed')}
           selectedCounters={object(label, counters, groupId)}
         />
       </Fullscreen>

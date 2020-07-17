@@ -11,9 +11,9 @@ import ActionButton from '../../atoms/ActionButton';
  */
 import './ErrorAlert.scss';
 
-const ErrorAlert = ({ title, onDismiss, onRetry, onClose }) => {
+const ErrorAlert = ({ title, onDismiss, onRetry }) => {
   return (
-    <Alert title={title} message="The internet connection appears to be offline" onClose={onClose}>
+    <Alert title={title} message="The internet connection appears to be offline">
       <div className="error-alert__actions">
         <ActionButton className="error-alert__button-retry" onClick={onRetry} label="Retry" />
         <ActionButton
@@ -31,7 +31,6 @@ ErrorAlert.propTypes = {
   title: PropTypes.string.isRequired,
   onDismiss: PropTypes.func.isRequired,
   onRetry: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
 };
 
 export default ErrorAlert;

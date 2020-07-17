@@ -1,0 +1,15 @@
+@import 'src/common/variables';
+
+.delete-alert {
+  &__actions {
+    display: flex;
+
+    button:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  &__button-delete {
+    color: $color-destructive-red;
+  }
+}

@@ -6,55 +6,80 @@ import PropTypes from 'prop-types';
 import useRootClose from 'react-overlays/useRootClose';
 import ToolBarButton from '../../atoms/ToolBarButton';
 import ShareTip from '../../molecules/ShareTip';
+import DeleteAlert from '../DeleteAlert';
 
 /**
  * Styles
  */
 import './ActionMenu.scss';
 
-const ActionMenu = ({ selectedCounters, onAdd, onDelete }) => {
-  const [showTip, setShowTip] = useState(false);
-  const ref = useRef();
-  const selectedCountersIds = selectedCounters.map((counter) => counter.id);
+const ActionMenu = ({ selectedCounters, onChange }) => {
+  const [showAddModal, setAddModalVisibility] = useState(false);
+  const [showDeleteModal, setDeleteModalVisibility] = useState(false);
+  const [showShareTip, setShareTipVisibility] = useState(false);
 
-  useRootClose(ref, () => setShowTip(false), {
-    disabled: !showTip,
+  const ref = useRef();
+
+  const onCompleted = () => {
+    setDeleteModalVisibility(false);
+    setAddModalVisibility(false);
+    onChange();
+  };
+
+  useRootClose(ref, () => setShareTipVisibility(false), {
+    disabled: !showShareTip,
   });
 
   return (
-    <div className="action-menu">
-      {selectedCounters.length ? (
-        <div className="action-menu__selection">
-          <ToolBarButton
-            onClick={() => onDelete(selectedCountersIds)}
-            lightTheme
-            ariaLabel="delete"
-          >
-            <span className="action-menu__selection__delete icon icon-garbage" />
-          </ToolBarButton>
-          <div className="action-menu__selection__share-wrapper">
-            <ToolBarButton onClick={() => setShowTip(!showTip)} lightTheme ariaLabel="share">
-              <span className="action-menu__selection__share icon icon-share" />
-            </ToolBarButton>
-            {showTip ? (
-              <div className="action-menu__selection__tip">
-                <ShareTip
-                  selectedCounters={selectedCounters}
-                  onClose={() => setShowTip(false)}
-                  originRef={ref}
-                />
-              </div>
-            ) : null}
-          </div>
-        </div>
+    <>
+      {showDeleteModal ? (
+        <DeleteAlert
+          counters={selectedCounters}
+          onCompleted={onCompleted}
+          onClose={() => setDeleteModalVisibility(false)}
+        />
       ) : null}
+      {showAddModal ? (
+        <DeleteAlert
+          counters={selectedCounters}
+          onCompleted={onCompleted}
+          onClose={() => setAddModalVisibility(false)}
+        />
+      ) : null}
+      <div className="action-menu">
+        {selectedCounters.length ? (
+          <div className="action-menu__selection">
+            <ToolBarButton
+              onClick={() => setDeleteModalVisibility(!showDeleteModal)}
+              lightTheme
+              ariaLabel="delete"
+            >
+              <span className="action-menu__selection__delete icon icon-garbage" />
+            </ToolBarButton>
+            <div className="action-menu__selection__share-wrapper">
+              <ToolBarButton
+                onClick={() => (showShareTip ? null : setShareTipVisibility(!showShareTip))}
+                lightTheme
+                ariaLabel="share"
+              >
+                <span className="action-menu__selection__share icon icon-share" />
+              </ToolBarButton>
+              {showShareTip ? (
+                <div className="action-menu__selection__tip">
+                  <ShareTip selectedCounters={selectedCounters} originRef={ref} />
+                </div>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
 
-      <div className="action-menu__add">
-        <ToolBarButton onClick={onAdd} ariaLabel="add">
-          <span className="icon icon-plus" />
-        </ToolBarButton>
+        <div className="action-menu__add">
+          <ToolBarButton onClick={() => setAddModalVisibility(true)} ariaLabel="add">
+            <span className="icon icon-plus" />
+          </ToolBarButton>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -65,14 +90,12 @@ ActionMenu.propTypes = {
       count: PropTypes.number,
     }),
   ),
-  onAdd: PropTypes.func,
-  onDelete: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 ActionMenu.defaultProps = {
   selectedCounters: [],
-  onAdd: () => true,
-  onDelete: () => true,
+  onChange: () => true,
 };
 
 export default ActionMenu;
