@@ -15,7 +15,9 @@ const ErrorAlert = ({ title, onDismiss, onRetry }) => {
   return (
     <Alert title={title} message="The internet connection appears to be offline">
       <div className="error-alert__actions">
-        <ActionButton className="error-alert__button-retry" onClick={onRetry} label="Retry" />
+        {onRetry ? (
+          <ActionButton className="error-alert__button-retry" onClick={onRetry} label="Retry" />
+        ) : null}
         <ActionButton
           className="error-alert__button-dismiss"
           onClick={onDismiss}
@@ -30,7 +32,11 @@ const ErrorAlert = ({ title, onDismiss, onRetry }) => {
 ErrorAlert.propTypes = {
   title: PropTypes.string.isRequired,
   onDismiss: PropTypes.func.isRequired,
-  onRetry: PropTypes.func.isRequired,
+  onRetry: PropTypes.func,
+};
+
+ErrorAlert.defaultProps = {
+  onRetry: null,
 };
 
 export default ErrorAlert;

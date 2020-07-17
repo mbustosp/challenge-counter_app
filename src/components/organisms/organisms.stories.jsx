@@ -16,6 +16,7 @@ import { getSelected } from '../../utils/counterUtils';
  * Styles
  */
 import '../../common/_base.scss';
+import CreateCounterModal from './CreateCounterModal';
 
 /**
  * Data
@@ -56,4 +57,7 @@ storiesOf('Organisms', module)
         onRefresh={action('Refreshing')}
       />
     );
+  })
+  .add('Create Counter Modal', () => {
+    return <CreateCounterModal onCreate={action('Create')} onClose={action('Close')} />;
   });

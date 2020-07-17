@@ -1,0 +1,14 @@
+.examples-scroll {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+
+  button {
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  button:last-child {
+    margin-right: 24px;
+  }
+}

@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs/react';
-import { text, number, boolean, object } from '@storybook/addon-knobs';
+import { text, number, boolean, object, array } from '@storybook/addon-knobs';
 import WelcomeScreen from './Welcome';
 import SearchBar from './SearchBar';
 import Counter from './Counter';
@@ -14,12 +14,16 @@ import ErrorLoading from './LoadingError';
 import ShareTip from './ShareTip';
 import Fullscreen from '../../../.storybook/components/Fullscreen';
 import NoResults from './NoResults';
+import Alert from './Alert';
+import Modal from './Modal';
+import ActionButton from '../atoms/ActionButton';
+import ExamplesModal from './ExamplesModal';
+import ExamplesScroll from './ExamplesScroll';
 
 /**
  * Styles
  */
 import '../../common/_base.scss';
-import Alert from './Alert';
 
 /**
  * Data
@@ -39,6 +43,26 @@ const selectedCounters = [
 
 storiesOf('Molecules', module)
   .addDecorator(withKnobs)
+  .add('Examples scroll', () => {
+    const label = 'Examples';
+    const defaultValue = ['Red'];
+
+    return (
+      <ExamplesScroll titles={array(label, defaultValue)} onClick={(title) => action(title)()} />
+    );
+  })
+  .add('Modal', () => {
+    return (
+      <Modal
+        title={text('title', 'Simple modal')}
+        onClose={action('Closing')}
+        button={<ActionButton label="Save" />}
+      />
+    );
+  })
+  .add('Examples Modal', () => {
+    return <ExamplesModal onSelect={action('Selected')} onClose={action('Closing')} />;
+  })
   .add('Alert', () => {
     return (
       <Alert

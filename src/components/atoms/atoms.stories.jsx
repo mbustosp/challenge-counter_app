@@ -15,6 +15,7 @@ import CancelButton from './CancelButton';
 import RefreshIndicator from './RefreshIndicator';
 import ActivityIndicator from './ActivityIndicator';
 import PaperNote from './PaperNote';
+import OvalButton from './OvalButton';
 
 /**
  * Styles
@@ -57,6 +58,15 @@ storiesOf('Atoms', module)
     return (
       <CancelButton
         label={text('label', 'I am a cancel button')}
+        onClick={action('Clicked!')}
+        disabled={boolean('disabled', false)}
+      />
+    );
+  })
+  .add('Button - Oval', () => {
+    return (
+      <OvalButton
+        label={text('label', 'I am an oval button')}
         onClick={action('Clicked!')}
         disabled={boolean('disabled', false)}
       />

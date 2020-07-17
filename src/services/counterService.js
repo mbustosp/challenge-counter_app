@@ -2,7 +2,6 @@
  * Counter Service.
  * Layer of communication with the Counter App API.
  */
-
 export const fetchCounters = (onSuccess, onFailure) => {
   fetch('/api/v1/counter')
     .then((reqCounters) => reqCounters.json())
@@ -10,9 +9,22 @@ export const fetchCounters = (onSuccess, onFailure) => {
     .catch(() => onFailure());
 };
 
+export const addCounter = (onSuccess, onFailure) => (title) => {
+  fetch('/api/v1/counter', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ title }),
+  })
+    .then((reqCounter) => reqCounter.json())
+    .then((counter) => onSuccess(counter))
+    .catch(() => onFailure());
+};
+
 export const increaseCounter = (onSuccess, onFailure) => (reqId) => {
   fetch('/api/v1/counter/inc', {
-    method: 'POST', // or 'PUT'
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -25,7 +37,7 @@ export const increaseCounter = (onSuccess, onFailure) => (reqId) => {
 
 export const decreaseCounter = (onSuccess, onFailure) => (reqId) => {
   fetch('/api/v1/counter/dec', {
-    method: 'POST', // or 'PUT'
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -40,7 +52,7 @@ export const deleteCounters = (onSuccess, onFailure) => (ids) => {
   const errors = [];
   const requests = ids.map(({ id }) =>
     fetch('/api/v1/counter', {
-      method: 'DELETE', // or 'PUT'
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },

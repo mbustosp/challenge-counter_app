@@ -1,0 +1,21 @@
+@import '../../../common/variables';
+
+.create-counter-modal {
+  &__name {
+    margin-bottom: 10px;
+  }
+
+  &__suggestion {
+    margin-top: 10px;
+    color: $color-text-input-placeholder;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  &__examples {
+    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

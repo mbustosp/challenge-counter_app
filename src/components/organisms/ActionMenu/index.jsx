@@ -12,6 +12,7 @@ import DeleteAlert from '../DeleteAlert';
  * Styles
  */
 import './ActionMenu.scss';
+import CreateCounterModal from '../CreateCounterModal';
 
 const ActionMenu = ({ selectedCounters, onChange }) => {
   const [showAddModal, setAddModalVisibility] = useState(false);
@@ -40,11 +41,7 @@ const ActionMenu = ({ selectedCounters, onChange }) => {
         />
       ) : null}
       {showAddModal ? (
-        <DeleteAlert
-          counters={selectedCounters}
-          onCompleted={onCompleted}
-          onClose={() => setAddModalVisibility(false)}
-        />
+        <CreateCounterModal onCreate={onCompleted} onClose={() => setAddModalVisibility(false)} />
       ) : null}
       <div className="action-menu">
         {selectedCounters.length ? (
