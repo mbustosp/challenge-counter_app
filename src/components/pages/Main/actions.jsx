@@ -12,7 +12,7 @@ const COUNTER_ACTIONS = {
 };
 
 // Action generators
-export const setCountAction = (id, count) => ({ type: COUNTER_ACTIONS.SET_COUNT, id, count });
+export const setCountAction = ({ id, count }) => ({ type: COUNTER_ACTIONS.SET_COUNT, id, count });
 export const selectCounterAction = (id) => ({ type: COUNTER_ACTIONS.SELECT, id });
 export const deleteCountersAction = (ids) => ({ type: COUNTER_ACTIONS.DELETE, ids });
 export const setSearchAction = (search) => ({ type: COUNTER_ACTIONS.SEARCH, search });

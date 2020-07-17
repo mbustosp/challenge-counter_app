@@ -19,6 +19,7 @@ import NoResults from './NoResults';
  * Styles
  */
 import '../../common/_base.scss';
+import Alert from './Alert';
 
 /**
  * Data
@@ -38,6 +39,17 @@ const selectedCounters = [
 
 storiesOf('Molecules', module)
   .addDecorator(withKnobs)
+  .add('Alert', () => {
+    return (
+      <Alert
+        title={text('title', 'This is an alert')}
+        message={text(
+          'message',
+          'This is a random text message placed here to check how everything fits together',
+        )}
+      />
+    );
+  })
   .add('Share Tip', () => {
     const label = 'Selected Counters';
     const defaultValue = {

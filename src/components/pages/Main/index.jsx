@@ -5,17 +5,16 @@ import React, { useReducer, useEffect } from 'react';
 import LoadingError from '../../molecules/LoadingError';
 import mainReducer, { initialState, SCREENS } from './reducer';
 import { filterByTitle, getSelected } from '../../../utils/counterUtils';
+import { fetchCounters } from '../../../services/counterService';
 import {
-  decreaseCounter,
-  deleteCounters,
-  fetchCounters,
-  increaseCounter,
-} from '../../../services/counterService';
-import {
+  failedLoadAction,
+  loadCountersAction,
   refreshCountersAction,
   selectCounterAction,
+  setCountAction,
   setSearchAction,
   setSearchActiveAction,
+  successfulLoadAction,
 } from './actions';
 
 /**
@@ -42,7 +41,15 @@ const Main = () => {
   // Only fetch changes on initial rendering or when refresh action is called
   useEffect(() => {
     if (isRefreshing || !counters.length) {
-      fetchCounters(dispatch)(isRefreshing);
+      if (isRefreshing) {
+        dispatch(refreshCountersAction());
+      } else {
+        dispatch(loadCountersAction());
+      }
+      fetchCounters(
+        (fetchedCounters) => dispatch(successfulLoadAction(fetchedCounters)),
+        () => dispatch(failedLoadAction()),
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRefreshing]);
@@ -57,8 +64,8 @@ const Main = () => {
           isRefreshing={isRefreshing}
           onSelect={(id) => dispatch(selectCounterAction(id))}
           onRefresh={() => dispatch(refreshCountersAction())}
-          onIncrease={increaseCounter(dispatch)}
-          onDecrease={decreaseCounter(dispatch)}
+          onIncrease={(counter) => dispatch(setCountAction(counter))}
+          onDecrease={(counter) => dispatch(setCountAction(counter))}
         />
       ) : (
         <NoResults />
@@ -96,7 +103,10 @@ const Main = () => {
   );
 
   const actionMenu = (
-    <ActionMenu selectedCounters={selectedCounters} onDelete={deleteCounters(dispatch)} />
+    <ActionMenu
+      selectedCounters={selectedCounters}
+      onChange={() => dispatch(refreshCountersAction())}
+    />
   );
 
   return (

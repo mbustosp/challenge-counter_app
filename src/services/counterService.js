@@ -2,24 +2,15 @@
  * Counter Service.
  * Layer of communication with the Counter App API.
  */
-import {
-  failedLoadAction,
-  refreshCountersAction,
-  setCountAction,
-  successfulLoadAction,
-  loadCountersAction,
-  deleteCountersAction,
-} from '../components/pages/Main/actions';
 
-export const fetchCounters = (dispatch) => (isRefreshing) => {
-  dispatch(isRefreshing ? refreshCountersAction() : loadCountersAction());
+export const fetchCounters = (onSuccess, onFailure) => {
   fetch('/api/v1/counter')
     .then((reqCounters) => reqCounters.json())
-    .then((reqCounters) => dispatch(successfulLoadAction(reqCounters)))
-    .catch(() => dispatch(failedLoadAction()));
+    .then((counters) => onSuccess(counters))
+    .catch(() => onFailure());
 };
 
-export const increaseCounter = (dispatch) => (reqId) => {
+export const increaseCounter = (onSuccess, onFailure) => (reqId) => {
   fetch('/api/v1/counter/inc', {
     method: 'POST', // or 'PUT'
     headers: {
@@ -28,11 +19,11 @@ export const increaseCounter = (dispatch) => (reqId) => {
     body: JSON.stringify({ id: reqId }),
   })
     .then((reqCounter) => reqCounter.json())
-    .then(({ id, count }) => dispatch(setCountAction(id, count)))
-    .catch(() => console.log('Can not increase'));
+    .then((counter) => onSuccess(counter))
+    .catch(() => onFailure());
 };
 
-export const decreaseCounter = (dispatch) => (reqId) => {
+export const decreaseCounter = (onSuccess, onFailure) => (reqId) => {
   fetch('/api/v1/counter/dec', {
     method: 'POST', // or 'PUT'
     headers: {
@@ -41,11 +32,11 @@ export const decreaseCounter = (dispatch) => (reqId) => {
     body: JSON.stringify({ id: reqId }),
   })
     .then((reqCounter) => reqCounter.json())
-    .then(({ id, count }) => dispatch(setCountAction(id, count)))
-    .catch(() => console.log('Can not decrease'));
+    .then((counter) => onSuccess(counter))
+    .catch(() => onFailure());
 };
 
-export const deleteCounters = (dispatch) => (ids) => {
+export const deleteCounters = (onSuccess, onFailure) => (ids) => {
   const errors = [];
   const requests = ids.map((id) =>
     fetch('/api/v1/counter', {
@@ -56,8 +47,5 @@ export const deleteCounters = (dispatch) => (ids) => {
       body: JSON.stringify({ id }),
     }).catch(() => errors.push(id)),
   );
-
-  Promise.all(requests).then(() =>
-    dispatch(deleteCountersAction(ids.filter((id) => !errors.includes(id)))),
-  );
+  Promise.all(requests).then(() => onSuccess());
 };
