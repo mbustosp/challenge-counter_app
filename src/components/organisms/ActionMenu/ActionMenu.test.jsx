@@ -31,12 +31,15 @@ describe('Action Menu', () => {
     expect(queryByLabelText('delete')).not.toBeNull();
   });
 
-  it('calls onAdd callback when add button is pressed', () => {
-    const onAdd = jest.fn();
-    const { queryByLabelText } = render(
-      <ActionMenu onDelete={() => true} onAdd={onAdd} selectedCounters={[{ id: 1 }, { id: 2 }]} />,
+  it('open creation modal when add button is clicked', () => {
+    const { queryByLabelText, queryByText } = render(
+      <ActionMenu
+        onDelete={() => true}
+        onChange={() => true}
+        selectedCounters={[{ id: 1 }, { id: 2 }]}
+      />,
     );
     fireEvent.click(queryByLabelText('add'));
-    expect(onAdd).toHaveBeenCalled();
+    expect(queryByText('Create counter')).not.toBeNull();
   });
 });

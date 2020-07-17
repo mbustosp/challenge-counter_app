@@ -1,0 +1,14 @@
+@import 'src/common/variables';
+
+.error-alert {
+
+
+
+  &__actions {
+    display: flex;
+
+    button:first-child {
+      margin-right: 10px;
+    }
+  }
+}

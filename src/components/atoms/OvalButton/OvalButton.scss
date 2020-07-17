@@ -1,0 +1,13 @@
+@import '../../../common/variables';
+
+.oval-button {
+  height: 40px;
+  background-color: $color-silver;
+
+  border: 1px solid $color-almost-silver;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 99px;
+
+  padding: 8px 18px;
+  box-sizing: border-box;
+}

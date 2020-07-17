@@ -24,8 +24,8 @@ const Counter = ({
 }) => {
   const ref = useRef(null);
   const deleteCounter = () => onDelete(id);
-  const increaseCounter = () => onIncrease(id);
-  const decreaseCounter = () => (value > 0 ? onDecrease(id) : null);
+  const increaseCounter = () => onIncrease({ id, value, title });
+  const decreaseCounter = () => (value > 0 ? onDecrease({ id, value, title }) : null);
   const select = () => onSelection(id);
 
   const keyMap = {
