@@ -1,5 +1,42 @@
 # Cornershop Frontend Test
 
+## How I planned to develop the challenge
+- First I reviewed the figma file, I made myself sure to check all possible interaction details,
+and to identify the required components in order to start planning the UI construction.
+- Then I worked in the project's scaffolding. I wanted to set a robust development
+process that would include linters tool, git hooks, and test runners.
+- At some point I thought it would be a very good idea to create a component catalog
+using storybooks, so I included it in the project and I started to add the first
+common styles (colors, typography, fonts, etc), organizing everything in a "SCSS"
+fashion.
+- After having provided the basic styles, I jumped right over the Main screen,
+building the layout. At this point, I thought again I could be a good idea to follow
+an Atomic Design approach, splitting the components folders in atoms, molecules,
+organisms, templates and pages.
+- I started with the atoms, building the inputs, buttons, counters, checking the focus
+of each one of them, adding some aria-labels for accessibility. Later on, I started bundling
+everything into the so called molecules.
+- When I reached the "organic" section, I included states in some components. My first
+approach was to use only setState hooks but then I realised that it was getting
+spaghettified a bit, so I changed my mind and started using native react's reducers.
+- At this point, I had the Figma file reviewed couple of times, trying to define the
+style in the most precise way, having added the most tests as possible (although,
+ being aware that there are couple of them pending to be developed).
+ 
+ ###What I would have liked to improve?
+ - Virtualization of the counters.
+ - Addition of debouncers.
+ - Caching through Service Workers.
+ - Light/Dark theme.
+ - More tests involving the counter services.
+ - Probably, cross-browser compatibility (sorry, I have an 8-year-old lenovo laptop
+ with Windows installed, I can not run webpack-dev and three browsers at the same time).
+ 
+ It was an interesting and quite challenging test. (God is in the details).
+ Thank you,
+ Sincerely,
+ Matías Agustín Bustos Paredes    
+
 #### ⚠️ Before you begin
 
 > Create a new git repository on the root of this folder, upload it to Github, and invite [@RoHerrera](https://github.com/RoHerrera) and [@varellanov](https://github.com/varellanov) as collaborators.
