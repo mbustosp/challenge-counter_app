@@ -1,6 +1,7 @@
-# Cornershop Frontend Test
+# -Anonymous company- Frontend challenge
 
 ## How I planned to develop the challenge
+
 - First I reviewed the figma file, I made myself sure to check all possible interaction details,
 and to identify the required components in order to start planning the UI construction.
 - Then I worked in the project's scaffolding. I wanted to set a robust development
@@ -32,14 +33,11 @@ style in the most precise way, having added the most tests as possible (although
  - Probably, cross-browser compatibility (sorry, I have an 8-year-old lenovo laptop
  with Windows installed, I can not run webpack-dev and three browsers at the same time).
  
- It was an interesting and quite challenging test. (God is in the details).
+ It was an interesting and quite challenging test.
+
  Thank you,
  Sincerely,
  Matías Agustín Bustos Paredes    
-
-#### ⚠️ Before you begin
-
-> Create a new git repository on the root of this folder, upload it to Github, and invite [@RoHerrera](https://github.com/RoHerrera) and [@varellanov](https://github.com/varellanov) as collaborators.
 
 ## Overview
 
