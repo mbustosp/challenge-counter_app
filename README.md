@@ -24,7 +24,7 @@ spaghettified a bit, so I changed my mind and started using native react's reduc
 style in the most precise way, having added the most tests as possible (although,
  being aware that there are couple of them pending to be developed).
  
- ###What I would have liked to improve?
+ ### What I would have liked to improve?
  - Virtualization of the counters.
  - Addition of debouncers.
  - Caching through Service Workers.
