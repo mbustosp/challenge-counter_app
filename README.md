@@ -1,6 +1,7 @@
 # -Anonymous company- Frontend challenge
 
 ## How I planned to develop the challenge
+
 - First I reviewed the figma file, I made myself sure to check all possible interaction details,
 and to identify the required components in order to start planning the UI construction.
 - Then I worked in the project's scaffolding. I wanted to set a robust development
@@ -33,6 +34,7 @@ style in the most precise way, having added the most tests as possible (although
  with Windows installed, I can not run webpack-dev and three browsers at the same time).
  
  It was an interesting and quite challenging test.
+
  Thank you,
  Sincerely,
  Matías Agustín Bustos Paredes    
